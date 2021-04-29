@@ -11,7 +11,7 @@ const HeaderDrawer = ({ isOpen, onClose }) => {
   const classes = useStyles();
 
   const renderDrawerChoice = ({ label, href }) => (
-    <ListItem button key={label}>
+    <ListItem button key={`drawer-choice-${label}`}>
       <NextLink href={href}>
         <ListItemText primary={label} />
       </NextLink>

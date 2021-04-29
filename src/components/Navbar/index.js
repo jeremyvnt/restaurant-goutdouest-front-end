@@ -1,9 +1,10 @@
 import {
+  AppBar,
+  Button,
+  Hidden,
+  IconButton,
   Toolbar,
   Typography,
-  IconButton,
-  Hidden,
-  AppBar,
 } from "@material-ui/core";
 import NextLink from "next/link";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -15,7 +16,11 @@ const Navbar = ({ openDrawerHandler }) => {
   const classes = useStyles();
 
   const renderLink = ({ label, href }) => (
-    <NextLink href={href}>{label}</NextLink>
+    <NextLink key={`link-${label}`} href={href}>
+      <Button color={"secondary"} component={"a"}>
+        {label}
+      </Button>
+    </NextLink>
   );
 
   const renderLinks = () => links.map(renderLink);
@@ -38,9 +43,7 @@ const Navbar = ({ openDrawerHandler }) => {
             Goût d'ouest
           </Typography>
           <div className={classes.grow} />
-          <Hidden xsDown>
-            <Typography>{renderLinks()}</Typography>
-          </Hidden>
+          <Hidden xsDown>{renderLinks()}</Hidden>
         </Toolbar>
       </AppBar>
     </div>
