@@ -30,7 +30,7 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest",
+      "kentcdodds",
       "prettier"
     ]
   },
@@ -40,6 +40,9 @@
     "coverage"
   ],
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/styles": "^4.11.4",
     "next": "latest",
     "next-seo": "^4.17.0",
     "ramda": "^0.27.1",
