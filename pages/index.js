@@ -1,10 +1,9 @@
-import { Button, Typography } from "@material-ui/core";
+import Home from "../src/views/Home";
+import Main from "../src/layouts/Main";
+import WithLayout from "../src/WithLayout";
 
-export default function Home() {
-  return (
-    <>
-      <Typography variant={"h1"}>Home</Typography>
-      <Button>Bouton</Button>
-    </>
-  );
-}
+const HomePage = () => {
+  return <WithLayout component={Home} layout={Main} />;
+};
+
+export default HomePage;

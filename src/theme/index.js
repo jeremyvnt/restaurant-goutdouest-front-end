@@ -1,20 +1,20 @@
 import { createMuiTheme } from "@material-ui/core/styles";
-
-const palette = {
-  primary: {
-    main: "#5F666F",
-  },
-  secondary: {
-    main: "#fff",
-  },
-};
+import { palette } from "./palette";
 
 const theme = createMuiTheme({
   palette,
   typography: {
+    fontFamily: "Lato",
     button: {
       textTransform: "none",
     },
+  },
+  layout: {
+    contentWidth: 1236,
+  },
+  zIndex: {
+    appBar: 1200,
+    drawer: 1100,
   },
 });
 
