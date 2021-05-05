@@ -1,6 +1,5 @@
-import { lighten } from "@material-ui/core/styles/colorManipulator";
-
 export const grey = "#5F666F";
+export const yellow = "#f8b933";
 
 export const primary = {
   main: grey,
@@ -26,7 +25,8 @@ export const background = {
 };
 
 export const alternate = {
-  main: lighten(primary.main, 0.8),
+  // main: lighten(primary.main, 0.8),
+  main: "rgb(247, 249, 250)",
   dark: "#e8eaf6",
 };
 

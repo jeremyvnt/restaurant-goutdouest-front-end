@@ -3,9 +3,7 @@ import { array, string } from "prop-types";
 import clsx from "clsx";
 import { IconButton, Grid, List, ListItem } from "@material-ui/core";
 import FacebookIcon from "@material-ui/icons/Facebook";
-import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
-import PinterestIcon from "@material-ui/icons/Pinterest";
 
 import { Image } from "../../../../components/atoms";
 import MenuGroup from "./MenuGroup";
@@ -35,17 +33,17 @@ const Footer = (props) => {
                 </div>
               </ListItem>
               <ListItem disableGutters>
-                <IconButton className={classes.socialIcon}>
+                <IconButton
+                  href={"https://www.facebook.com/goutdouest"}
+                  className={classes.socialIcon}
+                >
                   <FacebookIcon className={classes.icon} />
                 </IconButton>
-                <IconButton className={classes.socialIcon}>
+                <IconButton
+                  href={"https://www.instagram.com/valerieapeche/"}
+                  className={classes.socialIcon}
+                >
                   <InstagramIcon className={classes.icon} />
-                </IconButton>
-                <IconButton className={classes.socialIcon}>
-                  <TwitterIcon className={classes.icon} />
-                </IconButton>
-                <IconButton className={classes.socialIcon}>
-                  <PinterestIcon className={classes.icon} />
                 </IconButton>
               </ListItem>
             </List>

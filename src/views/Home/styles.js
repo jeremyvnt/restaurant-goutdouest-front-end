@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { colors } from "@material-ui/core";
 
 export default makeStyles((theme) => ({
   fontWeight900: {
@@ -45,11 +46,25 @@ export default makeStyles((theme) => ({
       backgroundSize: "800px auto",
     },
   },
-  fontWeightBold: {
-    fontWeight: "900",
+  imageSection: {
+    borderRadius: 10,
   },
   sectionImageContainer: {
     paddingLeft: "1rem",
     paddingRight: "1rem",
+  },
+  pagePaddingTop: {
+    paddingTop: theme.spacing(3),
+    [theme.breakpoints.up("md")]: {
+      paddingTop: theme.spacing(5),
+    },
+  },
+  sectionNoPaddingTop: {
+    paddingTop: 0,
+  },
+  shape: {
+    background: theme.palette.alternate.main,
+    borderBottomRightRadius: "45%",
+    borderBottom: `1px solid ${colors.grey[200]}`,
   },
 }));

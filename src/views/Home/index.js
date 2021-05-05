@@ -1,4 +1,4 @@
-import { Box, Grid, useMediaQuery, useTheme } from "@material-ui/core";
+import { Box, Button, Grid, useMediaQuery, useTheme } from "@material-ui/core";
 import clsx from "clsx";
 
 import HeroShaped from "../../components/HeroShaped";
@@ -6,7 +6,13 @@ import SectionHeader from "../../components/SectionHeader";
 import SectionAlternate from "../../components/SectionAlternate";
 import Image from "../../components/atoms/Image";
 import Section from "../../components/Section";
-import { heroData, section1Data, section2Data } from "./constants";
+import {
+  epiceriePreview,
+  heroData,
+  menuPreview,
+  section1Data,
+  section2Data,
+} from "./constants";
 import useStyles from "./styles";
 
 export default function Home() {
@@ -35,32 +41,85 @@ export default function Home() {
   return (
     <>
       <HeroShaped leftSide={leftSideContent} rightSide={rightSideContent} />
-      <SectionAlternate>
-        <Grid container justify="space-between" spacing={2}>
-          <Grid item xs={12} md={6} data-aos={"fade-right"}>
-            <SectionHeader
-              title={section1Data?.title}
-              subtitles={section1Data?.subtitles}
-              align={isMd ? "left" : "center"}
-              disableGutter
-              titleVariant="h3"
-              titleProps={{ className: classes.fontWeightBold }}
-            />
+      <Section className={classes.menuPreview}>
+        <SectionHeader
+          title={menuPreview?.title}
+          subtitles={menuPreview?.subtitles}
+          align="left"
+          label={"Menu"}
+          titleProps={{
+            variant: "h2",
+            color: "textPrimary",
+          }}
+          data-aos="fade-right"
+          disableGutter
+          ctaGroup={[
+            <Button
+              href={"/menu"}
+              color="primary"
+              variant="contained"
+              size="large"
+            >
+              Découvrez notre carte
+            </Button>,
+          ]}
+          className={classes.menuPreview}
+        />
+      </Section>
+      <div className={classes.shape}>
+        <SectionAlternate>
+          <Grid container justify="space-between" spacing={2}>
+            <Grid item xs={12} md={6} data-aos={"fade-right"}>
+              <SectionHeader
+                title={section1Data?.title}
+                subtitles={section1Data?.subtitles}
+                align={isMd ? "left" : "center"}
+                disableGutter
+                titleVariant="h3"
+                titleProps={{ className: classes.fontWeightBold }}
+              />
+            </Grid>
+            <Grid
+              item
+              container
+              alignItems="center"
+              xs={12}
+              md={6}
+              data-aos={"fade-left"}
+            >
+              <Box className={classes.sectionImageContainer}>
+                <Image className={classes.imageSection} src={"cote.jpeg"} />
+              </Box>
+            </Grid>
           </Grid>
-          <Grid
-            item
-            container
-            alignItems="center"
-            xs={12}
-            md={6}
-            data-aos={"fade-left"}
-          >
-            <Box className={classes.sectionImageContainer}>
-              <Image src={"cote.jpeg"} />
-            </Box>
+        </SectionAlternate>
+        <Section className={classes.sectionNoPaddingTop}>
+          <Grid container justify="space-between" spacing={2}>
+            <Grid
+              item
+              container
+              alignItems="center"
+              xs={12}
+              md={6}
+              data-aos={"fade-left"}
+            >
+              <Box className={classes.sectionImageContainer}>
+                <Image className={classes.imageSection} src={"montagne.jpeg"} />
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={6} data-aos={"fade-right"}>
+              <SectionHeader
+                title={section2Data?.title}
+                subtitles={section2Data?.subtitles}
+                align={isMd ? "left" : "center"}
+                disableGutter
+                titleVariant="h3"
+                titleProps={{ className: classes.fontWeight900 }}
+              />
+            </Grid>
           </Grid>
-        </Grid>
-      </SectionAlternate>
+        </Section>
+      </div>
       <Section>
         <Grid container justify="space-between" spacing={2}>
           <Grid
@@ -72,17 +131,28 @@ export default function Home() {
             data-aos={"fade-left"}
           >
             <Box className={classes.sectionImageContainer}>
-              <Image src={"montagne.jpeg"} />
+              <Image className={classes.imageSection} src={"epicerie.jpeg"} />
             </Box>
           </Grid>
           <Grid item xs={12} md={6} data-aos={"fade-right"}>
             <SectionHeader
-              title={section2Data?.title}
-              subtitles={section2Data?.subtitles}
+              title={epiceriePreview?.title}
+              subtitles={epiceriePreview?.subtitles}
               align={isMd ? "left" : "center"}
               disableGutter
+              label={"Épicerie"}
               titleVariant="h3"
-              titleProps={{ className: classes.fontWeightBold }}
+              titleProps={{ className: classes.fontWeight900 }}
+              ctaGroup={[
+                <Button
+                  href={"/epicerie"}
+                  color="primary"
+                  variant="contained"
+                  size="large"
+                >
+                  Découvrez notre épicerie
+                </Button>,
+              ]}
             />
           </Grid>
         </Grid>

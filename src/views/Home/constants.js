@@ -25,3 +25,21 @@ export const section2Data = {
     "Notre territoire propose également des boissons variées et de tradition.",
   ],
 };
+
+export const menuPreview = {
+  title: "Notre carte",
+  subtitles: [
+    "Une carte simplifiée, on vous emmène à l’essentiel, au fil des saisons et au plus près des producteurs.",
+    "Notre mot d’ordre : le produit...",
+    "Votre corps vous dira merci et vos papilles aussi !",
+  ],
+};
+
+export const epiceriePreview = {
+  title: "Nos produits",
+  subtitles: [
+    "Une carte simplifiée, on vous emmène à l’essentiel, au fil des saisons et au plus près des producteurs.",
+    "Notre mot d’ordre : le produit...",
+    "Votre corps vous dira merci et vos papilles aussi !",
+  ],
+};

@@ -2,7 +2,7 @@ import { AppBar, Button, Hidden, IconButton, Toolbar } from "@material-ui/core";
 import NextLink from "next/link";
 import MenuIcon from "@material-ui/icons/Menu";
 
-import { FullGreyBackgroundLogo } from "../../../../components/Logo";
+import { FullWhiteBackgroundLogo } from "../../../../components/Logo";
 import useStyles from "./styles";
 
 const Navbar = ({ pages, openDrawerHandler }) => {
@@ -10,7 +10,7 @@ const Navbar = ({ pages, openDrawerHandler }) => {
 
   const renderLink = ({ title, href }) => (
     <NextLink key={`link-${title}`} href={href}>
-      <Button size={"large"} color={"secondary"} component={"a"}>
+      <Button size={"large"} color={"primary"} component={"a"}>
         {title}
       </Button>
     </NextLink>
@@ -20,7 +20,7 @@ const Navbar = ({ pages, openDrawerHandler }) => {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static" className={classes.appBar}>
+      <AppBar position="static" className={classes.appBar} color="secondary">
         <Toolbar>
           <Hidden smUp>
             <IconButton
@@ -34,7 +34,9 @@ const Navbar = ({ pages, openDrawerHandler }) => {
           </Hidden>
           <Hidden xsDown>{renderLinks()}</Hidden>
           <div className={classes.logo}>
-            <FullGreyBackgroundLogo width={200} height={75} />
+            <a href="/" title="Restaurant Goût d'Ouest">
+              <FullWhiteBackgroundLogo width={200} height={75} />
+            </a>
           </div>
           <div className={classes.grow} />
         </Toolbar>
