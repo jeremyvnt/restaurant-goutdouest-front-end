@@ -3,6 +3,7 @@
 
 #Netlify
 dist
+netlify
 
 ### react ###
 .DS_*
