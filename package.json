@@ -37,7 +37,9 @@
   "eslintIgnore": [
     "node_modules",
     "build",
-    "coverage"
+    "coverage",
+    "dist",
+    "netlify"
   ],
   "dependencies": {
     "@material-ui/core": "^4.11.3",
