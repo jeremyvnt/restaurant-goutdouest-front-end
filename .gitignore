@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/strapi,react,webstorm
 # Edit at https://www.toptal.com/developers/gitignore?templates=strapi,react,webstorm
 
+#Netlify
+dist
+
 ### react ###
 .DS_*
 *.log
