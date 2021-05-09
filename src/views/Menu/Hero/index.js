@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 
-import { Image } from "../../../components/atoms";
+import Image from "../../../components/atoms/Image";
 import { heroData } from "../constants";
 import SectionHeader from "../../../components/SectionHeader";
 import Section from "../../../components/Section";

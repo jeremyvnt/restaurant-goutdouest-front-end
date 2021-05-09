@@ -5,7 +5,7 @@ import { IconButton, Grid, List, ListItem } from "@material-ui/core";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
 
-import { Image } from "../../../../components/atoms";
+import Image from "../../../../components/atoms/Image";
 import MenuGroup from "./MenuGroup";
 import useStyles from "./styles";
 
