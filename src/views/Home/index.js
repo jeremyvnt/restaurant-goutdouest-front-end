@@ -48,7 +48,7 @@ export default function Home() {
           align="left"
           label={"Menu"}
           titleProps={{
-            variant: "h2",
+            variant: "h3",
             color: "textPrimary",
           }}
           data-aos="fade-right"
@@ -76,7 +76,7 @@ export default function Home() {
                 align={isMd ? "left" : "center"}
                 disableGutter
                 titleVariant="h3"
-                titleProps={{ className: classes.fontWeightBold }}
+                titleProps={{ className: classes.fontWeight900 }}
               />
             </Grid>
             <Grid
