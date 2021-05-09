@@ -2,7 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import { colors, Typography } from "@material-ui/core";
-import Icon from "../../components/atoms/Icon";
+import Icon from "../atoms/IconComponent";
 
 import useStyles from "./styles";
 
