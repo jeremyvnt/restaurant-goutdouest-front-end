@@ -32,7 +32,10 @@
       "react-app",
       "kentcdodds",
       "prettier"
-    ]
+    ],
+    "rules": {
+      "no-negated-condition": "off"
+    }
   },
   "eslintIgnore": [
     "node_modules",
