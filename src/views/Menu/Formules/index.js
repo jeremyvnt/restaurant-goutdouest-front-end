@@ -12,7 +12,7 @@ import { useTheme } from "@material-ui/core/styles";
 import React, { useState } from "react";
 
 import { formulesSection } from "../constants";
-import { Icon } from "../../../components/atoms";
+import Icon from "../../../components/atoms/Icon";
 import SectionHeader from "../../../components/SectionHeader";
 import DescriptionListIcon from "../../../components/DescriptionListIcon";
 import CardBase from "../../../components/CardBase";
