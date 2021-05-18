@@ -1,11 +1,13 @@
-import { array, string } from "prop-types";
-import { Box, withStyles, Tab } from "@material-ui/core";
+import { array } from "prop-types";
+import { Box, withStyles, Tab, Divider, Typography } from "@material-ui/core";
+import { intersperse, isEmpty, map, pipe } from "ramda";
 import React, { useState } from "react";
 import TabContext from "@material-ui/lab/TabContext";
 import TabList from "@material-ui/lab/TabList";
 import TabPanel from "@material-ui/lab/TabPanel";
 
 import { carteSection } from "../constants";
+import DishRow from "../../../components/DishRow";
 import SectionHeader from "../../../components/SectionHeader";
 import useStyles from "./styles";
 
@@ -21,7 +23,11 @@ const StyledTabs = withStyles({
     },
   },
 })((props) => (
-  <TabList {...props} TabIndicatorProps={{ children: <span /> }} />
+  <TabList
+    {...props}
+    variant="scrollable"
+    TabIndicatorProps={{ children: <span /> }}
+  />
 ));
 
 const StyledTab = withStyles((theme) => ({
@@ -37,40 +43,45 @@ const StyledTab = withStyles((theme) => ({
   },
 }))((props) => <Tab disableRipple {...props} />);
 
-const Carte = (props) => {
-  const { data, className, ...rest } = props;
+const Carte = ({ data }) => {
   const classes = useStyles();
 
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState(data[0]?.title);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  /*
+  const renderTab = ({ title }) => <StyledTab label={title} value={title} />;
 
-const renderDish = ({ label, description}) => (
-  <Box key={`dish-${label}`} flexDirection={"column"} p={1}>
-    <Typography variant="body1">{label}</Typography>
-    <Typography variant="subtitle1">{description}</Typography>
-  </Box>
-);
+  const renderTabs = () => data.map(renderTab);
 
+  const renderDish = ({ label, description, price }) => (
+    <DishRow
+      key={`dish-${label}-${price}`}
+      title={label}
+      subtitle={description}
+      price={`${price}€`}
+    />
+  );
 
+  const renderDishes = ({ title, list }) => (
+    <TabPanel key={`menu-section-${title}`} p={3} value={title}>
+      {isEmpty(list) && (
+        <Box
+          height={200}
+          display={"flex"}
+          alignItems={"center"}
+          justifyContent={"center"}
+        >
+          <Typography variant={"textSecondary"} color={"primary"}>
+            Aucune information renseignée.
+          </Typography>
+        </Box>
+      )}
 
-const renderDishes = ({ title, dishes }) => (
-  <Box key={`menu-section-${title}`} flexDirection={"column"} p={3}>
-    {pipe(
-      map(renderDish),
-      intersperse(<Divider />)
-    )(dishes)}
-  </Box>
-);
-
-const renderMenuCardDish = ({ label, description, price}) => {
-
-};
-
-*/
+      {!isEmpty(list) && pipe(map(renderDish), intersperse(<Divider />))(list)}
+    </TabPanel>
+  );
 
   return (
     <>
@@ -79,32 +90,23 @@ const renderMenuCardDish = ({ label, description, price}) => {
         subtitles={carteSection?.subtitles}
       />
       <TabContext value={value}>
-        <Box className={classes.demo2} {...rest} p={2}>
+        <Box className={classes.demo2} p={2}>
           <StyledTabs
+            className={classes.tabs}
             value={value}
             onChange={handleChange}
             aria-label="styled tabs example"
           >
-            <StyledTab label="Entrée" value="1" />
-            <StyledTab label="Plats" value="2" />
-            <StyledTab label="Desserts" value="3" />
-            <StyledTab label="Boissons" value="4" />
+            {renderTabs()}
           </StyledTabs>
         </Box>
-        <TabPanel value="1">Item One</TabPanel>
-        <TabPanel value="2">Item Two</TabPanel>
-        <TabPanel value="3">Item Three</TabPanel>
-        <TabPanel value="4">Item Four</TabPanel>
+        {!isEmpty(data) && data.map(renderDishes)}
       </TabContext>
     </>
   );
 };
 
 Carte.propTypes = {
-  /**
-   * External classes
-   */
-  className: string,
   /**
    * data to be rendered
    */

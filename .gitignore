@@ -24,6 +24,7 @@ sketch
 ### Strapi ###
 
 .env
+.env.development
 license.txt
 exports
 *.cache

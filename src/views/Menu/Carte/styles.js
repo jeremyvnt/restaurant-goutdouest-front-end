@@ -7,10 +7,11 @@ export default makeStyles((theme) => ({
   padding: {
     padding: theme.spacing(3),
   },
-  demo1: {
-    backgroundColor: theme.palette.background.paper,
-  },
   demo2: {
     backgroundColor: theme.palette.primary.main,
+  },
+  dish: {
+    border: 0,
+    cursor: "none",
   },
 }));

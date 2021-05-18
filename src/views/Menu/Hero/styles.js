@@ -10,6 +10,8 @@ export default makeStyles((theme) => ({
   image: {
     minHeight: 400,
     objectFit: "cover",
+    height: "auto",
+    opacity: 0.6,
     [theme.breakpoints.down("sm")]: {
       width: "auto",
     },

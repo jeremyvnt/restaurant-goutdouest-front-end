@@ -1,21 +1,16 @@
 import React from "react";
 import clsx from "clsx";
 import PropTypes from "prop-types";
-import { colors, Typography } from "@material-ui/core";
-import Icon from "../atoms/IconComponent";
+import { Box, Typography } from "@material-ui/core";
 
 import useStyles from "./styles";
 
-/**
- * Component to display the job card company
- *
- * @param {Object} props
- */
-const CardJobMinimal = (props) => {
+const DishRow = (props) => {
   const {
     title,
     subtitle,
-    showArrow,
+    price,
+    priceProps,
     titleProps,
     subtitleProps,
     className,
@@ -25,21 +20,22 @@ const CardJobMinimal = (props) => {
   const classes = useStyles();
 
   return (
-    <div className={clsx(classes.root, "card-job-minimal")} {...rest}>
+    <Box
+      className={clsx(classes.root, "card-job-minimal")}
+      {...rest}
+      marginRight={{ xs: 0, md: 5 }}
+    >
       <div
         className={clsx(classes.cardJobMinimalBody, "card-job-minimal__body")}
-        style={!showArrow ? { marginRight: 0 } : {}}
       >
         <div className="card-job-minimal__title-container">
           <Typography
             variant="subtitle1"
-            className={clsx(classes.title, "card-job-minimal__title")}
+            className={clsx(classes.bold, "card-job-minimal__title")}
             {...titleProps}
           >
             {title}
           </Typography>
-        </div>
-        <div className="card-job-minimal__location-conatiner">
           <Typography
             variant="body2"
             color="textSecondary"
@@ -49,27 +45,28 @@ const CardJobMinimal = (props) => {
             {subtitle}
           </Typography>
         </div>
-      </div>
-      {showArrow ? (
-        <div className="card-job-minimal__arrow-container">
-          <Icon
-            fontIconClass="fas fa-angle-right"
-            fontIconColor={colors.grey[700]}
-            className="card-job-minimal__arrow"
-          />
+        <div className="card-job-minimal__location-container">
+          <Typography
+            variant="body2"
+            color="primary"
+            className={classes.bold}
+            {...priceProps}
+          >
+            {price}
+          </Typography>
         </div>
-      ) : null}
-    </div>
+      </div>
+    </Box>
   );
 };
 
-CardJobMinimal.defaultProps = {
-  showArrow: false,
-  titleProps: {},
+DishRow.defaultProps = {
+  subtitle: null,
   subtitleProps: {},
+  titleProps: {},
 };
 
-CardJobMinimal.propTypes = {
+DishRow.propTypes = {
   /**
    * External classes
    */
@@ -81,11 +78,7 @@ CardJobMinimal.propTypes = {
   /**
    * Job subtitle of the card
    */
-  subtitle: PropTypes.string.isRequired,
-  /**
-   * Should show arrow or not
-   */
-  showArrow: PropTypes.bool,
+  subtitle: PropTypes.string,
   /**
    * Additional props to pass to the title Typography component
    */
@@ -93,7 +86,11 @@ CardJobMinimal.propTypes = {
   /**
    * Additional props to pass to the subtitle Typography component
    */
-  subtitleProps: PropTypes.object,
+  subtitleProps: PropTypes.object
+  /**
+   * Additional props to pass to the price Typography component
+   */,
+  priceProps: PropTypes.object,
 };
 
-export default CardJobMinimal;
+export default DishRow;

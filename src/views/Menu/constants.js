@@ -1,7 +1,7 @@
 export const heroData = {
   title: "Menu",
   subtitles: [
-    "Une carte simplifiée, on vous emmène à l’essentiel, au fil des saisons et au plus près des producteurs.",
+    "Pour vous faire plaisir, vous avez le choix : galettes, crêpes et glaces à la carte ou formules du jour et du week-end.",
   ],
 };
 
@@ -19,8 +19,7 @@ export const carteSection = {
 
 export const formules = [
   {
-    icon: "far fa-comment",
-    title: `Entrée - Plat`,
+    title: "Menu du jour",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     menu: [
@@ -33,7 +32,6 @@ export const formules = [
           },
           {
             label: "Entrée 2",
-            description: "Ceci est une description",
           },
           {
             label: "Entrée 3",
@@ -61,8 +59,7 @@ export const formules = [
     ],
   },
   {
-    icon: "far fa-paper-plane",
-    title: "Plat - Dessert",
+    title: "Menu entrecôte",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     menu: [
@@ -103,8 +100,7 @@ export const formules = [
     ],
   },
   {
-    icon: "far fa-heart",
-    title: "Entrée - Plat - Dessert",
+    title: "Menu du week-end",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     menu: [
@@ -165,7 +161,6 @@ export const formules = [
 
 export const carte = [
   {
-    icon: "far fa-comment",
     title: `Entrées`,
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -188,7 +183,6 @@ export const carte = [
     ],
   },
   {
-    icon: "far fa-paper-plane",
     title: "Plats",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -211,7 +205,6 @@ export const carte = [
     ],
   },
   {
-    icon: "far fa-heart",
     title: "Desserts",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",

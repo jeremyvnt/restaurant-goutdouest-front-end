@@ -1,98 +1,143 @@
-import { array, string } from "prop-types";
-import { equals } from "ramda";
+import { array } from "prop-types";
+import { equals, prop } from "ramda";
 import { isNilOrEmpty } from "ramda-adjunct";
-import {
-  useMediaQuery,
-  Grid,
-  colors,
-  Typography,
-  Box,
-} from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
+import { Grid, Typography, Box } from "@material-ui/core";
 import React, { useState } from "react";
+import RestaurantIcon from "@material-ui/icons/Restaurant";
 
 import { formulesSection } from "../constants";
-import Icon from "../../../components/atoms/IconComponent";
 import SectionHeader from "../../../components/SectionHeader";
-import DescriptionListIcon from "../../../components/DescriptionListIcon";
 import CardBase from "../../../components/CardBase";
 import useStyles from "./styles";
 
-const Formules = (props) => {
-  const { data, className, ...rest } = props;
-  const classes = useStyles();
+const Formules = ({ data }) => {
+  const [selectedMenu, setSelectedMenu] = useState(prop("0", data));
+  const classes = useStyles(selectedMenu?.menu?.length + 1 || 1);
 
-  const [selectedMenu, setSelectedMenu] = useState(
-    isNilOrEmpty(data) ? undefined : data[0]
-  );
   const isSelectedItem = (item) => equals(selectedMenu?.title, item?.title);
-  const theme = useTheme();
-  const isMd = useMediaQuery(theme.breakpoints.up("md"), {
-    defaultMatches: true,
-  });
 
   if (isNilOrEmpty(data)) return null;
 
-  const renderDish = ({ label, description }) => (
-    <Box key={`dish-${label}`} flexDirection={"column"} p={1}>
-      <Typography variant="body1">{label}</Typography>
-      <Typography variant="subtitle1">{description}</Typography>
+  const renderFormuleCard = (item) => (
+    <Grid key={`formule-${item?.title}`} item xs={12} md={4}>
+      <CardBase
+        className={classes.formuleCard}
+        liftUp={isSelectedItem(item)}
+        noShadow
+        variant="outlined"
+        onClick={() => setSelectedMenu(item)}
+      >
+        <Box flexDirection="row" textAlign="center">
+          <RestaurantIcon fontSize="large" color="primary" />
+          <Typography className={classes.textBold} variant="h5">
+            {item?.title}
+          </Typography>
+          <Typography variant="subtitle1">{item?.description}</Typography>
+        </Box>
+      </CardBase>
+    </Grid>
+  );
+
+  const renderDish = ({ label, description, price }) => (
+    <Box key={`dish-${label}`} flexDirection={"column"} py={1}>
+      <Typography color="secondary" variant="body1">
+        {label}
+      </Typography>
+      {description && (
+        <Typography color="secondary" variant="subtitle1">
+          {description}
+        </Typography>
+      )}
+      {price && (
+        <Typography
+          className={classes.textBold}
+          color="secondary"
+          variant="subtitle1"
+        >{`${price}€`}</Typography>
+      )}
     </Box>
   );
 
-  const renderMenuSection = ({ title, dishes }) => (
-    <Box key={`menu-section-${title}`} flexDirection={"column"} p={3}>
-      <Typography variant={"h3"}>{title}</Typography>
-      {dishes.map(renderDish)}
-    </Box>
+  const renderMenuSection = ({ title, dishes = [] }) => (
+    <Grid
+      key={`menu-section-${title}`}
+      item
+      container
+      className={classes.menuSection}
+      xs={12}
+      md={selectedMenu?.menu?.length}
+      direction="column"
+      component={Box}
+      p={2}
+    >
+      <Box>
+        <Typography color="secondary" variant={"h3"}>
+          {title}
+        </Typography>
+        {dishes.map(renderDish)}
+      </Box>
+    </Grid>
+  );
+
+  const renderTarifOption = ({ title, price }) => (
+    <Grid
+      key={`formule-tarif-${title}-${price}`}
+      item
+      container
+      direction="row"
+      component={Box}
+      p={2}
+      spacing={1}
+      className={classes.tarifOption}
+    >
+      <Grid item>
+        <Typography
+          className={classes.textBold}
+          color="secondary"
+          variant={"body1"}
+          pr={2}
+        >{`${title}: `}</Typography>
+      </Grid>
+      <Grid item>
+        <Typography
+          color="secondary"
+          variant={"body1"}
+        >{`${price}€`}</Typography>
+      </Grid>
+    </Grid>
   );
 
   return (
-    <div className={className} {...rest}>
+    <Box m={3}>
       <SectionHeader
         title={formulesSection?.title}
         subtitles={formulesSection?.subtitles}
       />
-      <Grid container spacing={isMd ? 4 : 2}>
-        {data.map((item, index) => (
-          <Grid item xs={12} md={4} key={index} data-aos="fade-up">
-            <CardBase
-              className={classes.formuleCard}
-              liftUp={isSelectedItem(item)}
-              noShadow
-              variant="outlined"
-              onClick={() => setSelectedMenu(item)}
-            >
-              <DescriptionListIcon
-                icon={
-                  <Icon
-                    size="large"
-                    fontIconClass={item.icon}
-                    fontIconColor={colors.yellow[700]}
-                  />
-                }
-                title={item.title}
-                subtitle={item.subtitle}
-                align="left"
-              />
-            </CardBase>
-          </Grid>
-        ))}
+      <Grid
+        className={classes.formules}
+        container
+        spacing={4}
+        wrap="nowrap"
+        component={Box}
+        m={6}
+      >
+        {data.map(renderFormuleCard)}
       </Grid>
-      <Box m={4}>
-        {!isNilOrEmpty(selectedMenu) &&
-          !isNilOrEmpty(selectedMenu.menu) &&
-          selectedMenu.menu.map(renderMenuSection)}
-      </Box>
-    </div>
+      <Grid className={classes.menuBackground}>
+        <Grid container justify="space-around">
+          {!isNilOrEmpty(selectedMenu?.menu) &&
+            selectedMenu.menu.map(renderMenuSection)}
+        </Grid>
+        <Grid container justify="center" component={Box} mt={4}>
+          {!isNilOrEmpty(selectedMenu?.tarifOptions) &&
+            selectedMenu.tarifOptions.map(renderTarifOption)}
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 
 Formules.propTypes = {
-  /**
-   * External classes
-   */
-  className: string,
   /**
    * data to be rendered
    */
