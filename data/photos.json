@@ -1,0 +1,8 @@
+[
+  { "name": "carte", "src": "static/images/carte.jpg" },
+  { "name": "cote", "src": "static/images/cote.jpg" },
+  { "name": "epicerie", "src": "static/images/epicerie.jpg" },
+  { "name": "menu", "src": "static/images/menu.jpg" },
+  { "name": "montagne", "src": "static/images/montagne.jpg" },
+  { "name": "restaurant", "src": "static/images/restaurant.jpg" }
+]

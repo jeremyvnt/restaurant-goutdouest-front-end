@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <>
       <HeroShaped leftSide={leftSideContent} rightSide={rightSideContent} />
-      <Section className={classes.menuPreview}>
+      <Section>
         <SectionHeader
           title={menuPreview?.title}
           subtitles={menuPreview?.subtitles}
@@ -64,7 +64,6 @@ export default function Home() {
               Découvrez notre carte
             </Button>,
           ]}
-          className={classes.menuPreview}
         />
       </Section>
       <div className={classes.shape}>
@@ -91,7 +90,13 @@ export default function Home() {
               <Box className={classes.sectionImageContainer}>
                 <Image
                   className={classes.imageSection}
-                  src={`${process.env.NEXT_PUBLIC_API_URL}/uploads/cote_a4bef40736.jpeg`}
+                  srcset="static/images/cote.jpeg?nf_resize=fit&w=320 320w,
+                          static/images/cote.jpeg?nf_resize=fit&w=480 480w,
+                          static/images/cote.jpeg?nf_resize=fit&w=800 800w"
+                  sizes="(max-width: 320px) 280px,
+                         (max-width: 480px) 440px,
+                         800px"
+                  src={"static/images/cote.jpeg?nf_resize=fit&w=800"}
                 />
               </Box>
             </Grid>
@@ -110,7 +115,13 @@ export default function Home() {
               <Box className={classes.sectionImageContainer}>
                 <Image
                   className={classes.imageSection}
-                  src={`${process.env.NEXT_PUBLIC_API_URL}/uploads/montagne_9f909212b2.jpeg`}
+                  srcset="static/images/montagne.jpeg?nf_resize=fit&w=320 320w,
+                          static/images/montagne.jpeg?nf_resize=fit&w=480 480w,
+                          static/images/montagne.jpeg?nf_resize=fit&w=800 800w"
+                  sizes="(max-width: 320px) 280px,
+                         (max-width: 480px) 440px,
+                         800px"
+                  src={"static/images/montagne.jpeg?nf_resize=fit&w=800"}
                 />
               </Box>
             </Grid>
@@ -140,7 +151,13 @@ export default function Home() {
             <Box className={classes.sectionImageContainer}>
               <Image
                 className={classes.imageSection}
-                src={`${process.env.NEXT_PUBLIC_API_URL}/uploads/epicerie_5a58d5e080.jpeg`}
+                srcset="static/images/epicerie.jpeg?nf_resize=fit&w=320 320w,
+                          static/images/epicerie.jpeg?nf_resize=fit&w=480 480w,
+                          static/images/epicerie.jpeg?nf_resize=fit&w=800 800w"
+                sizes="(max-width: 320px) 280px,
+                         (max-width: 480px) 440px,
+                         800px"
+                src={"static/images/epicerie.jpeg?nf_resize=fit&w=800"}
               />
             </Box>
           </Grid>
