@@ -47,7 +47,6 @@ export default function Home() {
           title={menuPreview?.title}
           subtitles={menuPreview?.subtitles}
           align="left"
-          label={"Menu"}
           titleProps={{
             variant: "h3",
             color: "textPrimary",
@@ -168,7 +167,6 @@ export default function Home() {
               subtitles={epiceriePreview?.subtitles}
               align={isMd ? "left" : "center"}
               disableGutter
-              label={"Épicerie"}
               titleVariant="h3"
               titleProps={{ className: classes.fontWeight900 }}
               ctaGroup={[

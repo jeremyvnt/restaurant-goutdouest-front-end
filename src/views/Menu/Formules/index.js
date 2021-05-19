@@ -127,7 +127,6 @@ const Formules = ({ data }) => {
         spacing={4}
         wrap="nowrap"
         component={Box}
-        m={6}
         justify="center"
       >
         {data.map(renderFormuleCard)}

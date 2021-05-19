@@ -10,7 +10,7 @@ export default function Epicerie() {
       alignItems={"center"}
       justifyContent={"center"}
       flexDirection={"column"}
-      py={8}
+      p={8}
     >
       <Box py={4}>
         <Image
