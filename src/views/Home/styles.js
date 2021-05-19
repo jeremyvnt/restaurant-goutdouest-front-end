@@ -36,7 +36,7 @@ export default makeStyles((theme) => ({
     },
   },
   imageAnimation: {
-    background: `url("static/images/restaurant.jpeg?nf_resize=fit&w=800")`,
+    background: `url("restaurant.jpeg?nf_resize=fit&w=800")`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "400px auto",
     width: "600%",

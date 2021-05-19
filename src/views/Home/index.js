@@ -90,13 +90,13 @@ export default function Home() {
               <Box className={classes.sectionImageContainer}>
                 <Image
                   className={classes.imageSection}
-                  srcset="static/images/cote.jpeg?nf_resize=fit&w=320 320w,
-                          static/images/cote.jpeg?nf_resize=fit&w=480 480w,
-                          static/images/cote.jpeg?nf_resize=fit&w=800 800w"
+                  srcset="cote.jpeg?nf_resize=fit&w=320 320w,
+                          cote.jpeg?nf_resize=fit&w=480 480w,
+                          cote.jpeg?nf_resize=fit&w=600 600w"
                   sizes="(max-width: 320px) 280px,
                          (max-width: 480px) 440px,
-                         800px"
-                  src={"static/images/cote.jpeg?nf_resize=fit&w=800"}
+                         600px"
+                  src={"cote.jpeg?nf_resize=fit&w=600"}
                 />
               </Box>
             </Grid>
@@ -115,13 +115,13 @@ export default function Home() {
               <Box className={classes.sectionImageContainer}>
                 <Image
                   className={classes.imageSection}
-                  srcset="static/images/montagne.jpeg?nf_resize=fit&w=320 320w,
-                          static/images/montagne.jpeg?nf_resize=fit&w=480 480w,
-                          static/images/montagne.jpeg?nf_resize=fit&w=800 800w"
+                  srcset="montagne.jpeg?nf_resize=fit&w=320 320w,
+                          montagne.jpeg?nf_resize=fit&w=480 480w,
+                          montagne.jpeg?nf_resize=fit&w=600 600w"
                   sizes="(max-width: 320px) 280px,
                          (max-width: 480px) 440px,
-                         800px"
-                  src={"static/images/montagne.jpeg?nf_resize=fit&w=800"}
+                         600px"
+                  src={"montagne.jpeg?nf_resize=fit&w=600"}
                 />
               </Box>
             </Grid>
@@ -151,13 +151,13 @@ export default function Home() {
             <Box className={classes.sectionImageContainer}>
               <Image
                 className={classes.imageSection}
-                srcset="static/images/epicerie.jpeg?nf_resize=fit&w=320 320w,
-                          static/images/epicerie.jpeg?nf_resize=fit&w=480 480w,
-                          static/images/epicerie.jpeg?nf_resize=fit&w=800 800w"
+                srcset="epicerie.jpeg?nf_resize=fit&w=320 320w,
+                          epicerie.jpeg?nf_resize=fit&w=480 480w,
+                          epicerie.jpeg?nf_resize=fit&w=600 600w"
                 sizes="(max-width: 320px) 280px,
                          (max-width: 480px) 440px,
-                         800px"
-                src={"static/images/epicerie.jpeg?nf_resize=fit&w=800"}
+                         600px"
+                src={"epicerie.jpeg?nf_resize=fit&w=600"}
               />
             </Box>
           </Grid>
