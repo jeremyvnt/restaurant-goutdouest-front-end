@@ -14,13 +14,13 @@ const Hero = (props) => {
   return (
     <div className={clsx(classes.root, className)} {...rest}>
       <Image
-        srcset="restaurant.jpeg?nf_resize=smartcrop&w=320 320w,
-                restaurant.jpeg?nf_resize=smartcrop&w=480 480w,
-                restaurant.jpeg?nf_resize=smartcrop&w=800 800w"
+        srcset="restaurant.jpeg?nf_resize=fit&w=320 320w,
+                restaurant.jpeg?nf_resize=fit&w=480 480w,
+                restaurant.jpeg?nf_resize=fit&w=800 800w"
         sizes="(max-width: 320px) 280px,
                (max-width: 480px) 440px,
                800px"
-        src={"restaurant.jpeg?nf_resize=smartcrop&w=800"}
+        src={"restaurant.jpeg?nf_resize=fit&w=800"}
         alt="Menu"
         className={classes.image}
         lazyProps={{ width: "100%", height: "100%" }}
