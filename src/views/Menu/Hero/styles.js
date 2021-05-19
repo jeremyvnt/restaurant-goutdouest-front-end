@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-export default makeStyles((theme) => ({
+export default makeStyles(() => ({
   root: {
     width: "100%",
     height: 500,
@@ -11,10 +11,7 @@ export default makeStyles((theme) => ({
     minHeight: 400,
     objectFit: "cover",
     height: "auto",
-    opacity: 0.6,
-    [theme.breakpoints.down("sm")]: {
-      width: "auto",
-    },
+    opacity: 0.9,
   },
   textWhite: {
     color: "white",

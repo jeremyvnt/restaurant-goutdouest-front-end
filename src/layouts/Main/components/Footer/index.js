@@ -19,20 +19,20 @@ const Footer = (props) => {
       <div className={classes.footerContainer}>
         <Grid container spacing={4}>
           <Grid item xs={12} md={2}>
-            <List disablePadding>
+            <List disablePadding className={classes.imagesContainer}>
               <ListItem disableGutters className={classes.logoContainerItem}>
                 <div className={classes.logoContainer}>
                   <a href="/" title="Restaurant Goût d'Ouest">
                     <Image
                       className={classes.logoImage}
-                      src="logo-grey-bg-square.svg"
+                      src="logo-white-block.svg"
                       alt="Logo Goût d'Ouest"
                       lazy={false}
                     />
                   </a>
                 </div>
               </ListItem>
-              <ListItem disableGutters>
+              <ListItem disableGutters className={classes.socialMedias}>
                 <IconButton
                   href={"https://www.facebook.com/goutdouest"}
                   className={classes.socialIcon}

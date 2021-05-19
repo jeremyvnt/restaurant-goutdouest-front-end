@@ -108,6 +108,7 @@ export default function Home() {
               item
               container
               alignItems="center"
+              justify="center"
               xs={12}
               md={6}
               data-aos={"fade-left"}

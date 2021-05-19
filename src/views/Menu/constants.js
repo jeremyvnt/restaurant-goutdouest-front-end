@@ -1,7 +1,9 @@
 export const heroData = {
   title: "Menu",
   subtitles: [
-    "Pour vous faire plaisir, vous avez le choix : galettes, crêpes et glaces à la carte ou formules du jour et du week-end.",
+    "Pour vous faire plaisir, vous avez le choix : ",
+    "galettes, crêpes et glaces à la carte ",
+    "ou formules du jour et du week-end.",
   ],
 };
 

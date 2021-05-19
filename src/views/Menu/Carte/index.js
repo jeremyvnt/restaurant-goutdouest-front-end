@@ -69,10 +69,15 @@ const Carte = ({ data }) => {
   );
 
   const renderDishes = ({ title, list }) => (
-    <TabPanel key={`menu-section-${title}`} p={3} value={title}>
+    <TabPanel
+      key={`menu-section-${title}`}
+      p={3}
+      value={title}
+      className={classes.tabpanel}
+    >
       {isEmpty(list) && (
         <Box
-          height={200}
+          height={1}
           display={"flex"}
           alignItems={"center"}
           justifyContent={"center"}

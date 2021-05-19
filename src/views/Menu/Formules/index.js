@@ -2,8 +2,7 @@ import { array } from "prop-types";
 import { equals, prop } from "ramda";
 import { isNilOrEmpty } from "ramda-adjunct";
 import { Grid, Typography, Box } from "@material-ui/core";
-import React, { useState } from "react";
-import RestaurantIcon from "@material-ui/icons/Restaurant";
+import React, { useRef, useState } from "react";
 
 import { formulesSection } from "../constants";
 import SectionHeader from "../../../components/SectionHeader";
@@ -13,6 +12,7 @@ import useStyles from "./styles";
 const Formules = ({ data }) => {
   const [selectedMenu, setSelectedMenu] = useState(prop("0", data));
   const classes = useStyles(selectedMenu?.menu?.length + 1 || 1);
+  const boardRef = useRef(null);
 
   const isSelectedItem = (item) => equals(selectedMenu?.title, item?.title);
 
@@ -25,10 +25,18 @@ const Formules = ({ data }) => {
         liftUp={isSelectedItem(item)}
         noShadow
         variant="outlined"
-        onClick={() => setSelectedMenu(item)}
+        onClick={() => {
+          setSelectedMenu(item);
+          if (boardRef.current) {
+            boardRef.current.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+          }
+        }}
       >
         <Box flexDirection="row" textAlign="center">
-          <RestaurantIcon fontSize="large" color="primary" />
+          <img src={"formule-icon.png"} width={100} alt={"Icon de formule"} />
           <Typography className={classes.textBold} variant="h5">
             {item?.title}
           </Typography>
@@ -120,10 +128,15 @@ const Formules = ({ data }) => {
         wrap="nowrap"
         component={Box}
         m={6}
+        justify="center"
       >
         {data.map(renderFormuleCard)}
       </Grid>
-      <Grid className={classes.menuBackground}>
+      <Grid
+        ref={boardRef}
+        className={classes.menuBackground}
+        id="formule-board"
+      >
         <Grid container justify="space-around">
           {!isNilOrEmpty(selectedMenu?.menu) &&
             selectedMenu.menu.map(renderMenuSection)}

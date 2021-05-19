@@ -17,4 +17,8 @@ export default makeStyles((theme) => ({
   paddingTop: {
     paddingTop: theme.spacing(3),
   },
+  tabpanel: {
+    height: 430,
+    overflow: "auto",
+  },
 }));

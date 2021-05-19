@@ -14,12 +14,19 @@ export default makeStyles((theme) => ({
       padding: theme.spacing(0, 8),
     },
   },
+  imagesContainer: {
+    flexDirection: "column",
+  },
+  socialMedias: {
+    justifyContent: "center",
+  },
   logoContainerItem: {
     paddingTop: 0,
+    justifyContent: "center",
   },
   logoContainer: {
     width: 120,
-    height: 32,
+    height: "auto",
   },
   logoImage: {
     width: "100%",
