@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import { Box, Button, Grid, useMediaQuery, useTheme } from "@material-ui/core";
 import clsx from "clsx";
 
@@ -88,7 +89,10 @@ export default function Home() {
               data-aos={"fade-left"}
             >
               <Box className={classes.sectionImageContainer}>
-                <Image className={classes.imageSection} src={"cote.jpeg"} />
+                <Image
+                  className={classes.imageSection}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}/uploads/cote_a4bef40736.jpeg`}
+                />
               </Box>
             </Grid>
           </Grid>
@@ -104,7 +108,10 @@ export default function Home() {
               data-aos={"fade-left"}
             >
               <Box className={classes.sectionImageContainer}>
-                <Image className={classes.imageSection} src={"montagne.jpeg"} />
+                <Image
+                  className={classes.imageSection}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}/uploads/montagne_9f909212b2.jpeg`}
+                />
               </Box>
             </Grid>
             <Grid item xs={12} md={6} data-aos={"fade-right"}>
@@ -131,7 +138,10 @@ export default function Home() {
             data-aos={"fade-left"}
           >
             <Box className={classes.sectionImageContainer}>
-              <Image className={classes.imageSection} src={"epicerie.jpeg"} />
+              <Image
+                className={classes.imageSection}
+                src={`${process.env.NEXT_PUBLIC_API_URL}/uploads/epicerie_5a58d5e080.jpeg`}
+              />
             </Box>
           </Grid>
           <Grid item xs={12} md={6} data-aos={"fade-right"}>

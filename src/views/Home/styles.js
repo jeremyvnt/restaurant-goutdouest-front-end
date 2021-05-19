@@ -36,7 +36,7 @@ export default makeStyles((theme) => ({
     },
   },
   imageAnimation: {
-    background: `url("restaurant.jpeg")`,
+    background: `url("${process.env.NEXT_PUBLIC_API_URL}/uploads/restaurant_4f94fe9571.jpeg")`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "400px auto",
     width: "600%",

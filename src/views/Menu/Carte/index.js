@@ -1,6 +1,7 @@
 import { array } from "prop-types";
 import { Box, withStyles, Tab, Divider, Typography } from "@material-ui/core";
-import { intersperse, isEmpty, map, pipe } from "ramda";
+import { intersperse, isEmpty, map, path, pipe } from "ramda";
+import { isNilOrEmpty } from "ramda-adjunct";
 import React, { useState } from "react";
 import TabContext from "@material-ui/lab/TabContext";
 import TabList from "@material-ui/lab/TabList";
@@ -46,14 +47,17 @@ const StyledTab = withStyles((theme) => ({
 const Carte = ({ data }) => {
   const classes = useStyles();
 
-  const [value, setValue] = useState(data[0]?.title);
+  const [value, setValue] = useState(path([0, "title"], data));
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   const renderTab = ({ title }) => <StyledTab label={title} value={title} />;
 
-  const renderTabs = () => data.map(renderTab);
+  const renderTabs = () => {
+    if (isNilOrEmpty(data)) return null;
+    return data.map(renderTab);
+  };
 
   const renderDish = ({ label, description, price }) => (
     <DishRow
@@ -83,6 +87,28 @@ const Carte = ({ data }) => {
     </TabPanel>
   );
 
+  if (isNilOrEmpty(data)) {
+    return (
+      <>
+        <SectionHeader
+          title={carteSection?.title}
+          subtitles={carteSection?.subtitles}
+          className={classes.paddingTop}
+        />
+        <Box
+          height={100}
+          display={"flex"}
+          alignItems={"center"}
+          justifyContent={"center"}
+        >
+          <Typography variant={"textSecondary"} color={"primary"}>
+            Impossible d'afficher la carte, veuillez réessayer plus tard.
+          </Typography>
+        </Box>
+      </>
+    );
+  }
+
   return (
     <>
       <SectionHeader
@@ -91,16 +117,11 @@ const Carte = ({ data }) => {
       />
       <TabContext value={value}>
         <Box className={classes.demo2} p={2}>
-          <StyledTabs
-            className={classes.tabs}
-            value={value}
-            onChange={handleChange}
-            aria-label="styled tabs example"
-          >
+          <StyledTabs value={value} onChange={handleChange} aria-label="tabs">
             {renderTabs()}
           </StyledTabs>
         </Box>
-        {!isEmpty(data) && data.map(renderDishes)}
+        {data.map(renderDishes)}
       </TabContext>
     </>
   );

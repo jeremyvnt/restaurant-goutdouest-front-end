@@ -14,8 +14,8 @@ const Hero = (props) => {
   return (
     <div className={clsx(classes.root, className)} {...rest}>
       <Image
-        src="restaurant.jpeg"
-        srcSet="restaurant.jpeg 2x"
+        src={`${process.env.NEXT_PUBLIC_API_URL}/uploads/restaurant_4f94fe9571.jpeg`}
+        srcSet={`${process.env.NEXT_PUBLIC_API_URL}/uploads/restaurant_4f94fe9571.jpeg 2x`}
         alt="Menu"
         className={classes.image}
         lazyProps={{ width: "100%", height: "100%" }}

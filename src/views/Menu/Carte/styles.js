@@ -14,4 +14,7 @@ export default makeStyles((theme) => ({
     border: 0,
     cursor: "none",
   },
+  paddingTop: {
+    paddingTop: theme.spacing(3),
+  },
 }));

@@ -21,7 +21,7 @@ export async function getStaticProps() {
   const currentCarte = head(carteResponse?.data);
 
   if (isNilOrEmpty(formulesData) && isNilOrEmpty(carteResponse?.data))
-    return {};
+    return { props: {} };
 
   const formules = !isNilOrEmpty(formulesData)
     ? map(sanitizeFormule, formulesData)
